@@ -1,3 +1,8 @@
 test:
   override:
-    - exit 0
+    - |
+      echo $EXAMPLE_YAML | base64 --decode > example2.yml
+      if [ "$(diff example.yml example2.yml)" != "" ]; then
+        exit 1
+      fi
+      exit 0
