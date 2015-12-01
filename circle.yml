@@ -1,7 +1,10 @@
 test:
   override:
     - |
+      echo $TEST > example1.yml
+      cat example1.yml
       echo $EXAMPLE_YAML | base64 --decode > example2.yml
+      cat example2.yml
       if [ "$(diff example.yml example2.yml)" != "" ]; then
         exit 1
       fi
