@@ -1,6 +1,7 @@
 dependencies:
   override:
     - echo $EXAMPLE_YAML | base64 --decode > example-from-env.yml
+    - cat example-from-env.yml
 test:
   override:
     - |
